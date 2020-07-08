@@ -1,20 +1,17 @@
 <template>
-  <div>
-    <Nuxt />
-  </div>
+	<div>
+		<Navbar />
+		<div class="container">
+			<Nuxt />
+		</div>
+	</div>
 </template>
 
-<style>
-body,
-html {
-  width: 100%;
-  height: 100%;
+<script>
+import Navbar from '@/components/Navbar'
+export default {
+	components: {
+		Navbar,
+	},
 }
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1abc9c;
-}
-</style>
+</script>
