@@ -15,6 +15,7 @@
 <script>
 import PostList from '@/components/PostList'
 export default {
+  layout: 'admin',
   components: {
     PostList,
   },

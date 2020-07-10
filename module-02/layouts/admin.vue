@@ -1,7 +1,8 @@
 <template>
   <div>
     <Navbar />
-    <div>
+    <div class="container">
+      <h1 class="title has-text-danger">Admin Area</h1>
       <Nuxt />
     </div>
   </div>
