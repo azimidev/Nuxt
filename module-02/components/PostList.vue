@@ -1,33 +1,13 @@
 <template>
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <Post
-          :is-admin="isAdmin"
-          :id="1"
-          title="The First Post"
-          body="This is The First Post body"
-          img="/images/bantham.jpg"
-        />
-      </div>
-      <div class="column">
-        <Post
-          :is-admin="isAdmin"
-          :id="1"
-          title="The Second Post"
-          body="This is The Second Post body"
-          img="/images/bantham.jpg"
-        />
-      </div>
-      <div class="column">
-        <Post
-          :is-admin="isAdmin"
-          :id="1"
-          title="The Third Post"
-          body="This is The Third Post body"
-          img=" /images/bantham.jpg"
-        />
-      </div>
+  <div class="columns">
+    <div class="column" v-for="(post, index) in posts" :key="index">
+      <Post
+        :is-admin="isAdmin"
+        :id="post.id"
+        :title="post.title"
+        :body="post.body"
+        :img="post.img"
+      />
     </div>
   </div>
 </template>
@@ -39,6 +19,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    posts: {
+      type: Array,
+      required: true,
     },
   },
 }
