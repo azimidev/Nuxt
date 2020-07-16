@@ -20,11 +20,5 @@ export default {
       })
     }, 2000)
   },
-
-  // created() {
-  //   setTimeout(() => {
-  //     this.loadedPosts = data
-  //   }, 2000)
-  // },
 }
 </script>
