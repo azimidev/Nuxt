@@ -21,7 +21,6 @@ export default {
     // NOTE: using `Promise` instead of `callback`
     // return new Promise().catch((error) => context.error(new Error()))
 
-    console.log(context)
     setTimeout(() => {
       callback(null, {
         loadedPosts: data,

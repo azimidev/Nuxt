@@ -17,7 +17,7 @@
         Posts
       </nuxt-link>
 
-       <nuxt-link to="/admin" class="navbar-item">
+      <nuxt-link to="/admin" class="navbar-item">
         Admin
       </nuxt-link>
     </div>
