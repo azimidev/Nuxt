@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "title": "The second post",
+    "title": "The first post",
     "body": "The first post body",
     "img": "/images/bantham.jpg"
   },
   {
-    "id": 1,
+    "id": 2,
     "title": "The second post",
     "body": "The second post body",
     "img": "/images/bantham.jpg"
   },
   {
-    "id": 1,
+    "id": 3,
     "title": "The third post",
     "body": "The third post body",
     "img": "/images/bantham.jpg"
