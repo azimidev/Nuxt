@@ -7,32 +7,15 @@
 
 <script>
 import PostList from '@/components/PostList'
+import data from '@/api/data.json'
+
 export default {
   components: {
     PostList,
   },
   data() {
     return {
-      loadedPosts: [
-        {
-          id: 1,
-          title: 'The second post',
-          body: 'The first post body',
-          img: '/images/bantham.jpg',
-        },
-        {
-          id: 1,
-          title: 'The second post',
-          body: 'The second post body',
-          img: '/images/bantham.jpg',
-        },
-        {
-          id: 1,
-          title: 'The third post',
-          body: 'The third post body',
-          img: '/images/bantham.jpg',
-        },
-      ],
+      loadedPosts: data,
     }
   },
 }
