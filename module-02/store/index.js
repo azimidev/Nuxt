@@ -13,12 +13,17 @@ export default () => {
     // DTATA
     state: {
       loadedPosts: [],
+      posts: [],
     },
 
     // UPDATE THE STATE:
     mutations: {
       setPosts(state, posts) {
         state.loadedPosts = posts
+      },
+      // 3. update the state
+      getPosts(state, posts) {
+        state.posts = posts
       },
     },
 
@@ -40,12 +45,25 @@ export default () => {
       setPosts(context, posts) {
         context.commit('setPosts', posts)
       },
+
+      // 2. commit to mutaitin getPosts
+      async getPosts({ commit }) {
+        const posts = await this.$axios.$get(
+          'https://jsonplaceholder.typicode.com/posts'
+        )
+
+        commit('getPosts', posts)
+      },
     },
 
     // GET THE STATE:
     getters: {
       loadedPosts(state) {
         return state.loadedPosts
+      },
+      // 4. make a getter
+      posts(state) {
+        return state.posts
       },
     },
   })
