@@ -25,7 +25,9 @@ export default () => {
     // COMMIT TO MUTATIONS:
     actions: {
       nuxtServerInit(vuexContext, context) {
-        console.log('nuxtServerInit')
+        // process
+        // context.req
+        // context.res
         return new Promise((resolve) => {
           setTimeout(() => {
             vuexContext.commit('setPosts', data)
