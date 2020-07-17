@@ -7,16 +7,15 @@
 
 <script>
 import PostList from '@/components/PostList'
-import data from '@/api/data.json'
 
 export default {
   components: {
     PostList,
   },
-  data() {
-    return {
-      loadedPosts: data,
-    }
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    },
   },
 }
 </script>

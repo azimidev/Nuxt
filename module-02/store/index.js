@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import data from '@/api/data.json'
 
 /**
  * Classic Mode
@@ -23,6 +24,16 @@ export default () => {
 
     // COMMIT TO MUTATIONS:
     actions: {
+      nuxtServerInit(vuexContext, context) {
+        console.log('nuxtServerInit')
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            vuexContext.commit('setPosts', data)
+            resolve()
+          }, 2000)
+        })
+      },
+
       // DISPATCH
       setPosts(context, posts) {
         context.commit('setPosts', posts)

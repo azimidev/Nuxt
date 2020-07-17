@@ -7,7 +7,7 @@
     <hr />
     <section class="existing-posts">
       <h1 class="title">Existing Posts</h1>
-      <PostList :is-admin="true" />
+      <PostList :is-admin="true" :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -23,6 +23,11 @@ export default {
     return {
       isAdmin: false,
     }
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    },
   },
 }
 </script>
