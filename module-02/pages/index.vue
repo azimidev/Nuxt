@@ -14,15 +14,13 @@ export default {
   },
   mounted() {
     // 1. dispatch action getPosts
-    this.$store.dispatch('getPosts')
+    // this.$store.dispatch('setPosts')
+    // We don't use this because we  fetch the post via `nuxtServerInit`
   },
   computed: {
+    // 5. get tge getter and display it
     loadedPosts() {
       return this.$store.getters.loadedPosts
-    },
-    // 5. get tge getter and display it
-    posts() {
-      return this.$store.getters.posts
     },
   },
 }

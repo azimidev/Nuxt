@@ -18,12 +18,9 @@ export default () => {
 
     // UPDATE THE STATE:
     mutations: {
+      // 3. update the state
       setPosts(state, posts) {
         state.loadedPosts = posts
-      },
-      // 3. update the state
-      getPosts(state, posts) {
-        state.posts = posts
       },
     },
 
@@ -41,29 +38,17 @@ export default () => {
         })
       },
 
-      // DISPATCH
-      setPosts(context, posts) {
-        context.commit('setPosts', posts)
-      },
-
       // 2. commit to mutaitin getPosts
-      async getPosts({ commit }) {
-        const posts = await this.$axios.$get(
-          'https://jsonplaceholder.typicode.com/posts'
-        )
-
-        commit('getPosts', posts)
+      async setPosts(context, posts) {
+        await context.commit('setPosts', posts)
       },
     },
 
     // GET THE STATE:
     getters: {
+      // 4. make a getter
       loadedPosts(state) {
         return state.loadedPosts
-      },
-      // 4. make a getter
-      posts(state) {
-        return state.posts
       },
     },
   })
