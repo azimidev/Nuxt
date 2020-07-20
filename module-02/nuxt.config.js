@@ -1,14 +1,17 @@
+/*
+ * NOTE: Please restart your server when you manipulate this file
+ */
 export default {
   /*
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  mode: 'universal',
+  mode: 'universal', // spa
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  target: 'server', // static
   /*
    ** Headers of the page
    ** See https://nuxtjs.org/api/configuration-head
@@ -34,10 +37,26 @@ export default {
       },
     ],
   },
+
+  // NOTE: for SPA
+  // loadingIndicator: {
+  //   name: 'circle',
+  //   color: '#3B8070',
+  //   background: 'white'
+  // },
+
+  // NOTE: for universal
+  loading: {
+    color: '#ff5000',
+    height: '4px',
+    duration: 5000,
+  },
+
   /*
    ** Global CSS
    */
   css: ['@/assets/styles/main.scss'],
+
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -78,5 +97,34 @@ export default {
         },
       },
     },
+    // publicPath: 'https://parsclick.net',
+    // dev: process.env.NODE_ENV !== 'production',
+    // env: {
+    //   baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.enc.baseUrl
+    // },
+    // quiet: false,
+    // ssr: true,
+    // cache: false,
+    // cssSourceMap: true,
+    // devtools: false,
+    // friendlyErrors: true,
+    // hardSource: false,
+    // indicator: true,
+    // hotMiddleware: {},
+    // optimization: {
+    //   minimize: true,
+    //   minimizer: [
+    //     // terser-webpack-plugin
+    //     // optimize-css-assets-webpack-plugin
+    //   ],
+    //   splitChunks: {
+    //     chunks: 'all',
+    //     automaticNameDelimiter: '.',
+    //     name: undefined,
+    //     cacheGroups: {},
+    //   },
+    // },
+    // optimizeCSS: false,
+    // parallel: false,
   },
 }

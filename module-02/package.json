@@ -1,5 +1,6 @@
 {
   "name": "parsclick",
+  "description": "Amir Azimi az parsclick.net",
   "version": "1.0.0",
   "private": true,
   "scripts": {
