@@ -97,34 +97,32 @@ export default {
         },
       },
     },
-    // publicPath: 'https://parsclick.net',
-    // dev: process.env.NODE_ENV !== 'production',
-    // env: {
-    //   baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.enc.baseUrl
-    // },
-    // quiet: false,
-    // ssr: true,
-    // cache: false,
-    // cssSourceMap: true,
-    // devtools: false,
-    // friendlyErrors: true,
-    // hardSource: false,
-    // indicator: true,
-    // hotMiddleware: {},
-    // optimization: {
-    //   minimize: true,
-    //   minimizer: [
-    //     // terser-webpack-plugin
-    //     // optimize-css-assets-webpack-plugin
-    //   ],
-    //   splitChunks: {
-    //     chunks: 'all',
-    //     automaticNameDelimiter: '.',
-    //     name: undefined,
-    //     cacheGroups: {},
-    //   },
-    // },
-    // optimizeCSS: false,
-    // parallel: false,
   },
+  // publicPath: 'https://parsclick.net',
+  // dev: process.env.NODE_ENV !== 'production',
+  // env: {
+  // baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.env.baseUrl
+  // },
+  // quiet: false,
+  // ssr: true,
+  // cache: false,
+  // cssSourceMap: true,
+  // devtools: false,
+  // friendlyErrors: true,
+  // indicator: true,
+  // hotMiddleware: {},
+  // optimization: {
+  //   minimize: true,
+  //   minimizer: [
+  //     // terser-webpack-plugin
+  //     // optimize-css-assets-webpack-plugin
+  //   ],
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     automaticNameDelimiter: '.',
+  //     name: undefined,
+  //     cacheGroups: {},
+  //   },
+  // },
+  // optimizeCSS: false,
 }

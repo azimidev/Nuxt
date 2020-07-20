@@ -13,6 +13,7 @@ export default {
     PostList,
   },
   mounted() {
+    console.log('----------------', process.env.baseUrl)
     // 1. dispatch action getPosts
     // this.$store.dispatch('setPosts')
     // We don't use this because we  fetch the post via `nuxtServerInit`
