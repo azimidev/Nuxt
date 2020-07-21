@@ -86,6 +86,7 @@ export default {
     '@nuxtjs/bulma',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // SEE: https://github.com/nuxt-community/awesome-nuxt#modules
   ],
   /*
    ** Axios module configuration
@@ -114,9 +115,9 @@ export default {
   // publicPath: 'https://parsclick.net',
   // dev: process.env.NODE_ENV !== 'production',
   // ==========================================
-  // env: {
-  // baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.env.baseUrl
-  // },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.env.baseUrl
+  },
   // ==========================================
   // quiet: false,
   // ssr: true,
