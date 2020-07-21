@@ -98,11 +98,19 @@ export default {
       },
     },
   },
+  // transition: 'page',
+  transition: { name: 'fade', mode: 'out-in' },
+  // ==========================================
+  // rootDir: '/my-app/',
+  // srcDir: '/src/',
+  // router: {},
   // publicPath: 'https://parsclick.net',
   // dev: process.env.NODE_ENV !== 'production',
+  // ==========================================
   // env: {
   // baseUrl: process.env.BASE_URL || 'http://parsclick.test', // process.env.baseUrl
   // },
+  // ==========================================
   // quiet: false,
   // ssr: true,
   // cache: false,
@@ -110,7 +118,8 @@ export default {
   // devtools: false,
   // friendlyErrors: true,
   // indicator: true,
-  // hotMiddleware: {},
+  // optimizeCSS: false,
+  // ==========================================
   // optimization: {
   //   minimize: true,
   //   minimizer: [
@@ -124,5 +133,4 @@ export default {
   //     cacheGroups: {},
   //   },
   // },
-  // optimizeCSS: false,
 }
