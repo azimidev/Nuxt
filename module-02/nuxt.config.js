@@ -61,7 +61,12 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [
+    // internal plugins
+    '@/plugins/internal.js', // its not needed because of auto importing components
+    // external plugins
+    '@/plugins/external.js',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
