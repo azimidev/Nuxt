@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1 class="title">Post</h1>
     <PostList :posts="loadedPosts" />
   </div>
 </template>

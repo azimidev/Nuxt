@@ -7,7 +7,7 @@
 // Vue.component('Navbar', Navbar)
 // Vue.component('Post', Post)
 // Vue.component('PostList', PostList)
-//
+// ===============================================================
 // const files = require.context('@/components/', true, /\.vue$/i)
 // files
 //   .keys()

@@ -66,6 +66,8 @@ export default {
     '@/plugins/internal.js', // its not needed because of auto importing components
     // external plugins
     '@/plugins/external.js',
+    // filters
+    '@/plugins/filters.js',
   ],
   /*
    ** Auto import components

@@ -9,12 +9,12 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <p class="title is-4">{{ title }}</p>
+            <p class="title is-4">{{ title | capitalize }}</p>
           </div>
         </div>
 
         <div class="content">
-          {{ body }}
+          {{ body | capitalize }}
         </div>
       </div>
     </div>
