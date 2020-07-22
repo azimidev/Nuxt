@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import data from '@/api/data.json'
-import { SET_POSTS, LOGIN } from './types'
+import users from '@/api/users.json'
+import { SET_POSTS, SET_TOKEN, REGISTER } from './types'
 
 /**
  * Classic Mode
@@ -15,6 +16,7 @@ export default () => {
     state: {
       loadedPosts: [],
       posts: [],
+      token: '',
     },
 
     // UPDATE THE STATE:
@@ -24,7 +26,7 @@ export default () => {
         state.loadedPosts = posts
       },
 
-      [LOGIN](state, credentials) {
+      [SET_TOKEN](state, token) {
         // JWT:
         // 1. send the credentials to the server
         // 2. server checks if they are OK
@@ -32,7 +34,11 @@ export default () => {
         // 4. you save the token in the `localStorage`
         // 5. make a middleware which send the stored token for every request.
         // 6. if middleware token === your `localStorage` token then you have access if not then don't.
-        console.log(credentials)
+        state.token = token
+      },
+
+      [REGISTER](state, credentials) {
+        console.log('Registering', credentials)
       },
     },
 
@@ -51,12 +57,26 @@ export default () => {
       },
 
       // 2. commit to mutaitin getPosts
-      async setPosts(context, posts) {
-        await context.commit(SET_POSTS, posts)
+      async setPosts({ commit }, posts) {
+        await commit(SET_POSTS, posts)
       },
 
-      async login(context, credentials) {
-        await context.commit(LOGIN, credentials)
+      async register({ commit }, credentials) {
+        await commit(REGISTER, credentials)
+      },
+
+      async login({ commit }, credentials) {
+        // AXIOS CALL
+        const user = users[0]
+        const username = user.username
+        const password = user.password
+
+        if (
+          credentials.username === username &&
+          credentials.password === password
+        ) {
+          return await commit(SET_TOKEN, user.token)
+        }
       },
     },
 

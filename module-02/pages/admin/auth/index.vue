@@ -2,7 +2,7 @@
   <div class="admin-auth-page columns is-centered mt-10">
     <div class="card column is-6">
       <div class="card-content">
-        <form @submit.prevent="login">
+        <form @submit.prevent="submit" @keyup.enter="submit">
           <label>Username</label>
           <input
             type="text"
@@ -48,11 +48,28 @@ export default {
     }
   },
   methods: {
-    login() {
-      this.$store.dispatch('login', {
-        username: this.username,
-        password: this.password,
-      })
+    async submit() {
+      if (!this.username || !this.password) {
+        alert('Please fill up both username and password')
+        return
+      }
+
+      if (this.isLogin) {
+        await this.$store.dispatch('login', {
+          username: this.username,
+          password: this.password,
+        })
+        if (this.$store.state.token) {
+          alert('Welcome!')
+        } else {
+          alert('Credentials do not match!')
+        }
+      } else {
+        await this.$store.dispatch('register', {
+          username: this.username,
+          password: this.password,
+        })
+      }
     },
   },
 }
