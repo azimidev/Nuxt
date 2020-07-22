@@ -84,7 +84,9 @@ export default () => {
           credentials.password === password
         ) {
           await context.commit(SET_TOKEN, user.token)
-          await localStorage.setItem('token', user.token)
+          if (process.client) {
+            await localStorage.setItem('token', user.token)
+          }
           await this.$cookies.set('jwt', user.token)
         }
       },
@@ -103,7 +105,9 @@ export default () => {
           }
           token = jwt.split('=')[1]
         } else {
-          token = localStorage.getItem('token')
+          if (process.client) {
+            token = localStorage.getItem('token')
+          }
           // NOTE: expiry date:
           if (!token /* || new Date() > expiryDate */) {
             return
