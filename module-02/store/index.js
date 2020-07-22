@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import data from '@/api/data.json'
+import { SET_POSTS, LOGIN } from './types'
 
 /**
  * Classic Mode
@@ -19,8 +20,19 @@ export default () => {
     // UPDATE THE STATE:
     mutations: {
       // 3. update the state
-      setPosts(state, posts) {
+      [SET_POSTS](state, posts) {
         state.loadedPosts = posts
+      },
+
+      [LOGIN](state, credentials) {
+        // JWT:
+        // 1. send the credentials to the server
+        // 2. server checks if they are OK
+        // 3. if OK then server gives you a token (if not OK then server gives you an error which you need to show)
+        // 4. you save the token in the `localStorage`
+        // 5. make a middleware which send the stored token for every request.
+        // 6. if middleware token === your `localStorage` token then you have access if not then don't.
+        console.log(credentials)
       },
     },
 
@@ -32,7 +44,7 @@ export default () => {
         // context.res
         return new Promise((resolve) => {
           setTimeout(() => {
-            vuexContext.commit('setPosts', data)
+            vuexContext.commit(SET_POSTS, data)
             resolve()
           }, 2000)
         })
@@ -40,7 +52,11 @@ export default () => {
 
       // 2. commit to mutaitin getPosts
       async setPosts(context, posts) {
-        await context.commit('setPosts', posts)
+        await context.commit(SET_POSTS, posts)
+      },
+
+      async login(context, credentials) {
+        await context.commit(LOGIN, credentials)
       },
     },
 

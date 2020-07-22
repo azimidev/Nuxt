@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/bulma": "^1.2.7",
+    "@nuxtjs/proxy": "^2.0.1",
     "nuxt": "^2.13.0"
   },
   "devDependencies": {

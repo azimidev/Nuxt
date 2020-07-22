@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <div>
-      <h1 class="title has-text-danger">Admin Area</h1>
+      <h1 class="title has-text-danger has-text-centered mt-10">Admin Area</h1>
       <Nuxt />
     </div>
   </div>

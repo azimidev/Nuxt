@@ -87,12 +87,24 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // SEE: https://github.com/nuxt-community/awesome-nuxt#modules
+    // '@nuxtjs/proxy',
   ],
+  // proxy: {
+  //   '/': {
+  //     target: 'http://pars.test',
+  //     pathRewrite: {
+  //       '^/': '/',
+  //     },
+  //   },
+  // },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    // credentials: true,
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
