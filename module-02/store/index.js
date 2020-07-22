@@ -43,8 +43,10 @@ export default () => {
 
       [CLEAR_TOKEN](state) {
         state.token = null
-        localStorage.removeItem('token')
         this.$cookies.remove('jwt')
+        if (process.client) {
+          localStorage.removeItem('token')
+        }
       },
     },
 
