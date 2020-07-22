@@ -111,7 +111,9 @@ export default {
   // ==========================================
   // rootDir: '/my-app/',
   // srcDir: '/src/',
-  // router: {},
+  router: {
+    middleware: 'log',
+  },
   // publicPath: 'https://parsclick.net',
   // dev: process.env.NODE_ENV !== 'production',
   // ==========================================

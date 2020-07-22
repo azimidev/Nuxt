@@ -9,6 +9,7 @@
 import data from '@/api/data.json'
 
 export default {
+  middleware: 'log',
   mounted() {
     // 1. dispatch action getPosts
     // this.$store.dispatch('setPosts')
