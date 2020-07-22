@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import data from '@/api/data.json'
 import users from '@/api/users.json'
-import { SET_POSTS, SET_TOKEN, REGISTER } from './types'
+import { SET_POSTS, SET_TOKEN, REGISTER, CLEAR_TOKEN } from './types'
 
 /**
  * Classic Mode
@@ -16,7 +16,7 @@ export default () => {
     state: {
       loadedPosts: [],
       posts: [],
-      token: '',
+      token: null,
     },
 
     // UPDATE THE STATE:
@@ -39,6 +39,10 @@ export default () => {
 
       [REGISTER](state, credentials) {
         console.log('Registering', credentials)
+      },
+
+      [CLEAR_TOKEN](state) {
+        state.token = null
       },
     },
 
@@ -75,8 +79,12 @@ export default () => {
           credentials.username === username &&
           credentials.password === password
         ) {
-          return await commit(SET_TOKEN, user.token)
+          await commit(SET_TOKEN, user.token)
         }
+      },
+
+      async logout({ commit }) {
+        await commit(CLEAR_TOKEN)
       },
     },
 

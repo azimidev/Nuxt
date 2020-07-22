@@ -16,14 +16,22 @@
       <nuxt-link to="/posts" class="navbar-item">
         Posts
       </nuxt-link>
-      <nuxt-link exact to="/admin" class="navbar-item">
+      <nuxt-link exact to="/admin" class="navbar-item" v-if="isAuthenticated">
         Admin
       </nuxt-link>
-      <nuxt-link to="/admin/new-post" class="navbar-item">
+      <nuxt-link
+        to="/admin/new-post"
+        class="navbar-item"
+        v-if="isAuthenticated"
+      >
         Add Post
       </nuxt-link>
-      <nuxt-link to="/admin/auth" class="navbar-item">
-        Login/Register
+
+      <a @click.prevent="logout" class="navbar-item" v-if="isAuthenticated">
+        Logout
+      </a>
+      <nuxt-link to="/admin/auth" class="navbar-item" v-if="!isAuthenticated">
+        Login
       </nuxt-link>
     </div>
   </nav>
@@ -34,3 +42,19 @@
   background-color: black;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/')
+    },
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated
+    },
+  },
+}
+</script>
