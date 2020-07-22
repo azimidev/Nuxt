@@ -1,9 +1,7 @@
-export default ({ store }) => {
+export default ({ store, req }) => {
   console.log(
     '%c [Middleware] check auth!',
     'font-size: 15px; font-weight: bold'
   )
-  if (process.client) {
-    store.dispatch('initAuth')
-  }
+  store.dispatch('initAuth', req)
 }

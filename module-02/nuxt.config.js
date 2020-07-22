@@ -88,6 +88,7 @@ export default {
     '@nuxtjs/axios',
     // SEE: https://github.com/nuxt-community/awesome-nuxt#modules
     // '@nuxtjs/proxy',
+    'cookie-universal-nuxt',
   ],
   // proxy: {
   //   '/': {

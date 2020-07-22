@@ -16,7 +16,7 @@ export default () => {
     state: {
       loadedPosts: [],
       posts: [],
-      token: null,
+      token: null, // cookie || localStorage
     },
 
     // UPDATE THE STATE:
@@ -43,6 +43,8 @@ export default () => {
 
       [CLEAR_TOKEN](state) {
         state.token = null
+        localStorage.removeItem('token')
+        this.$cookies.remove('jwt')
       },
     },
 
@@ -69,7 +71,7 @@ export default () => {
         await commit(REGISTER, credentials)
       },
 
-      async login({ commit }, credentials) {
+      async login(context, credentials) {
         // AXIOS CALL
         const user = users[0]
         const username = user.username
@@ -79,16 +81,31 @@ export default () => {
           credentials.username === username &&
           credentials.password === password
         ) {
-          await commit(SET_TOKEN, user.token)
+          await context.commit(SET_TOKEN, user.token)
           await localStorage.setItem('token', user.token)
+          await this.$cookies.set('jwt', user.token)
         }
       },
 
-      async initAuth({ commit }) {
-        const token = localStorage.getItem('token')
-        // NOTE: expiry date:
-        if (!token /* || new Date() > expiryDate */) {
-          return
+      async initAuth({ commit }, request) {
+        let token
+        if (request) {
+          if (!request.headers.cookie) {
+            return
+          }
+          const jwt = request.headers.cookie
+            .split(';')
+            .find((c) => c.trim().startsWith('jwt='))
+          if (!jwt) {
+            return
+          }
+          token = jwt.split('=')[1]
+        } else {
+          token = localStorage.getItem('token')
+          // NOTE: expiry date:
+          if (!token /* || new Date() > expiryDate */) {
+            return
+          }
         }
         await commit(SET_TOKEN, token)
       },
