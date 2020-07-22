@@ -10,7 +10,8 @@
 
 <script>
 export default {
-  middleware: 'auth',
+  // NOTE: order does matter in middleware calls:
+  middleware: ['check-auth', 'auth'],
 }
 </script>
 

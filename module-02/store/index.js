@@ -80,7 +80,17 @@ export default () => {
           credentials.password === password
         ) {
           await commit(SET_TOKEN, user.token)
+          await localStorage.setItem('token', user.token)
         }
+      },
+
+      async initAuth({ commit }) {
+        const token = localStorage.getItem('token')
+        // NOTE: expiry date:
+        if (!token /* || new Date() > expiryDate */) {
+          return
+        }
+        await commit(SET_TOKEN, token)
       },
 
       async logout({ commit }) {
