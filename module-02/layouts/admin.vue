@@ -1,16 +1,16 @@
 <template>
   <div>
     <Navbar />
-    <div>
-      <h1 class="title has-text-danger has-text-centered mt-10">Admin Area</h1>
-      <Nuxt />
+    <div class="has-text-centered">
+      <h1 class="title has-text-danger mt-10">Admin Area</h1>
     </div>
+    <Nuxt />
   </div>
 </template>
 
 <script>
 export default {
-  // middleware: 'auth',
+  middleware: 'auth',
 }
 </script>
 

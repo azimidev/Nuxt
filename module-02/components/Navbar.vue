@@ -16,9 +16,14 @@
       <nuxt-link to="/posts" class="navbar-item">
         Posts
       </nuxt-link>
-
-      <nuxt-link to="/admin" class="navbar-item">
+      <nuxt-link exact to="/admin" class="navbar-item">
         Admin
+      </nuxt-link>
+      <nuxt-link to="/admin/new-post" class="navbar-item">
+        Add Post
+      </nuxt-link>
+      <nuxt-link to="/admin/auth" class="navbar-item">
+        Login/Register
       </nuxt-link>
     </div>
   </nav>

@@ -59,8 +59,8 @@ export default {
           username: this.username,
           password: this.password,
         })
-        if (this.$store.state.token) {
-          alert('Welcome!')
+        if (this.$store.getters.isAuthenticated) {
+          this.$router.push('/admin')
         } else {
           alert('Credentials do not match!')
         }
